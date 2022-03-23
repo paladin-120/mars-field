@@ -1,0 +1,23 @@
+[package]
+name = "mock-astro-generator"
+version = "1.0.0"
+authors = ["larry_0x <larry@delphidigital.io>"]
+edition = "2018"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/mars-protocol/field-of-mars"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+backtraces = ["cosmwasm-std/backtraces"]
+
+[dependencies]
+astroport = "1.0"
+fields-of-mars = { path = "../../packages/fields-of-mars" }
+cosmwasm-std = "0.16"
+cw20 = "0.8" # Astroport uses cw-plus 0.8, while Mars uses 0.9, which are not compatible in some cases
+cw-asset = { version = "1.0", features = ["legacy"] }
+cw-storage-plus = "0.9"
+schemars = "0.8.1"
+serde = { version = "1.0.103", default-features = false, features = ["derive"] }
